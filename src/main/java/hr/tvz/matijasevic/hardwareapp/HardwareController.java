@@ -39,7 +39,7 @@ public class HardwareController implements Serializable {
 
     @GetMapping("/{code}")
     public ResponseEntity<HardwareDTO> getHardwareByCode(@PathVariable String code){
-        System.out.println("pi");
+
         return hardwareService.findByCode(code)
                 .map(it -> ResponseEntity.status(HttpStatus.OK).body(it))
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
